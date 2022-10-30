@@ -3,12 +3,8 @@ import { Route } from "./route.interface"
 import { User } from "./user.interface"
 
 export interface Booking{
-    route: {
-         type: Route
-        },
-	user: {
-		type: User
-	},
+    route: Route,
+	user: User,
 	dayOfCreation: Date,
 	price: Number,
 	cancelPolicy:{
@@ -25,5 +21,5 @@ export interface Booking{
 			cancelPrice: Number
 		}
 	},
-	selectedStopPoint:{type: Point}
+	selectedStopPoint: Point
 }

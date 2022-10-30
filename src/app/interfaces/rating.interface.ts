@@ -1,13 +1,9 @@
 import { User } from "./user.interface"
 
 export interface Rating{
-    author: {
-        type: User
-    },
+    author: User,
     comment: String,
-    dest: {
-        type: User
-    },
+    dest: User,
     rate: Number,
     dateOfEntry: Date
 }

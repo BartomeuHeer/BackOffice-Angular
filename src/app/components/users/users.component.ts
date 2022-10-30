@@ -48,8 +48,9 @@ export class UsersComponent implements OnInit {
 
   userAdd(user: User): void{
       this.userSrv.addUser(user).subscribe(
-        data => {if(data.name == user.name){
-          this.users.push(data);
+        response => {
+          if(response.status == 200){
+            this.users.push(response.body!);
         }}
       )
   }

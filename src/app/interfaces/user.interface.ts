@@ -8,13 +8,7 @@ export interface User {
     password: string;
     email: string;
     birthday: Date,
-	route: [{
-		type: Route
-	}],
-	ratings: {
-		type: Rating
-	},
-	booking: [{
-		type: Booking
-	}]
+	route: [Route],
+	ratings: Rating,
+	booking: [Booking]
 }

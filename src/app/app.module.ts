@@ -12,6 +12,9 @@ import { FormComponent } from './components/form/form.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
+import { RoutesComponent } from './components/routes/routes.component';
+import { BookingsComponent } from './components/bookings/bookings.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
     UserComponent,
     UsersComponent,
     FormComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    MainPageComponent,
+    RoutesComponent,
+    BookingsComponent
   ],
   imports: [
     BrowserModule,

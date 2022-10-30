@@ -4,9 +4,7 @@ export interface Vehicle{
     model: String,
 	brand: String,
 	year: Date,
-	owner: {
-		type: User
-	},
+	owner: User,
 	seats: Number,
 	licencePlate: String,
 	insurance: {

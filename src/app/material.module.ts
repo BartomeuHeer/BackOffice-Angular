@@ -8,6 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import {DialogModule} from '@angular/cdk/dialog';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -22,7 +23,7 @@ import {DialogModule} from '@angular/cdk/dialog';
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
-    DialogModule
+    DialogModule,
   ]
 })
 export class MaterialModule { }
