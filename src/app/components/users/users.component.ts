@@ -16,11 +16,13 @@ export class UsersComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.userSrv.getUsers()
-    .pipe(
-      tap((users: User[]) => this.users = users)
-    )
-    .subscribe();
+    this.userSrv.getUsers().subscribe(
+      resp => {
+        if(resp.status == 200){
+          this.users = resp.body!
+        }
+      }
+    );
 
     
   }
@@ -32,11 +34,12 @@ export class UsersComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if(result){
-        this.userSrv.delete(user.name).subscribe(
-          data =>  { if(data.name == user.name){
-            this.users = this.users.filter(usr => usr.name != data.name)
-          }}
-        );
+        this.userSrv.delete(user._id).subscribe(
+          response =>  { 
+            if(response.status == 200){
+              this.users = this.users.filter(usr => usr._id != response.body!._id)
+          }
+        });
       }
     });
 

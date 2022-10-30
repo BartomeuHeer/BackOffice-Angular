@@ -1,4 +1,4 @@
-import { Component, OnInit,Output,EventEmitter } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter,Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { User } from 'src/app/interfaces/user.interface';
 import { Validators } from '@angular/forms';
@@ -9,7 +9,7 @@ import { Validators } from '@angular/forms';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-  user!: User;
+  @Input() user!: User
   @Output() addUser = new EventEmitter<User>();
   userForm = new FormGroup({
     name: new FormControl('', Validators.required),
