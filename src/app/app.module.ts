@@ -15,6 +15,9 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { RoutesComponent } from './components/routes/routes.component';
 import { BookingsComponent } from './components/bookings/bookings.component';
+import { LogInComponent } from './components/log-in/log-in.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { BookingsComponent } from './components/bookings/bookings.component';
     ConfirmationDialogComponent,
     MainPageComponent,
     RoutesComponent,
-    BookingsComponent
+    BookingsComponent,
+    LogInComponent,
+    NavbarComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

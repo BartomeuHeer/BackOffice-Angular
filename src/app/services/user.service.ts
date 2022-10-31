@@ -1,12 +1,18 @@
 import { HttpClient,HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
+import { LogIn } from '../interfaces/logIn.interface';
 import {User} from '../interfaces/user.interface'
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
+
+  user!: User;
+  private userSource = new BehaviorSubject(this.user);
+  currentUser = this.userSource.asObservable();
+
   private apiURL = 'http://localhost:5432/api/users/';
   constructor(private http: HttpClient) { }
 
@@ -20,5 +26,14 @@ export class UsersService {
 
   addUser(user:User):Observable<HttpResponse<User>>{
     return this.http.post<User>(this.apiURL+'register/', user, {observe: 'response'})
+  }
+
+  logIn(userData:LogIn): Observable<HttpResponse<User>>{
+    return this.http.post<User>(this.apiURL + 'login/', userData, {observe: 'response'})
+  }
+
+  newUserLogged(user: User) {
+    console.log("user a service: " + user)
+    this.userSource.next(user)
   }
 }
