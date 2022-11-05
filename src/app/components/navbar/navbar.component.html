@@ -6,9 +6,9 @@
         <a class="hover" mat-button routerLinkActive="activebutton" routerLink="/bookings">BOOKINGS</a>  
     </div>
     <div class="signIn">
-        <a *ngIf="user; else elseBlock" class="hover" mat-button routerLink="logIn">{{user.name}}</a>
+        <a *ngIf="user; else elseBlock" class="hover" mat-button>{{user.name}}</a>
         <ng-template #elseBlock>
-            <a class="hover" mat-button routerLink="logIn">SIGN IN</a>
+            <a class="hover" mat-button routerLink="login">SIGN IN</a>
         </ng-template>
     </div>
 </mat-toolbar>

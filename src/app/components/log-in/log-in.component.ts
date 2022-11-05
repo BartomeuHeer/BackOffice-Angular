@@ -15,6 +15,7 @@ import { UsersService } from 'src/app/services/user.service';
 export class LogInComponent implements OnInit, OnDestroy {
 
   user!: User;
+  message!: String;
   subscription!: Subscription;
 
   constructor(private userSrv: UsersService, private router: Router) { }
@@ -34,11 +35,9 @@ export class LogInComponent implements OnInit, OnDestroy {
 
   onSubmit(){
     const logInParams: LogIn = <LogIn>this.loginForm.value;
-    console.log(logInParams);
     this.userSrv.logIn(logInParams).subscribe(
       response => {
         if(response.status == 200){
-          console.log(response.body)
           this.userSrv.newUserLogged(response.body!);
           this.router.navigate(['/']);
         }

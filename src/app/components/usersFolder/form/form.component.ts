@@ -1,6 +1,6 @@
 import { Component, OnInit,Output,EventEmitter,Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { User } from 'src/app/interfaces/user.interface';
+import { User } from '../../../interfaces/user.interface';
 import { Validators } from '@angular/forms';
 
 @Component({
@@ -14,7 +14,7 @@ export class FormComponent implements OnInit {
   userForm = new FormGroup({
     name: new FormControl('', Validators.required),
     email: new FormControl('',[Validators.required,Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.min(6)])
+    password: new FormControl('', [Validators.required, Validators.min(6)]) 
   })
   constructor() { }
 

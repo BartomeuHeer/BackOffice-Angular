@@ -10,6 +10,7 @@ import {User} from '../interfaces/user.interface'
 export class UsersService {
 
   user!: User;
+  message!: String;
   private userSource = new BehaviorSubject(this.user);
   currentUser = this.userSource.asObservable();
 
@@ -21,7 +22,7 @@ export class UsersService {
   } 
 
   delete(userId:string):Observable<HttpResponse<User>>{
-    return this.http.delete<User>(this.apiURL+'delete/'+ userId, {observe: 'response'})
+    return this.http.delete<User>(this.apiURL+'/'+ userId, {observe: 'response'})
   }
 
   addUser(user:User):Observable<HttpResponse<User>>{
@@ -33,7 +34,7 @@ export class UsersService {
   }
 
   newUserLogged(user: User) {
-    console.log("user a service: " + user)
-    this.userSource.next(user)
+    //console.log("user a service: " + JSON.stringify(user));
+    this.userSource.next(user);
   }
 }
