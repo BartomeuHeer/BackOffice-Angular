@@ -11,16 +11,24 @@ export class RouteService {
   private apiURL = 'http://localhost:5432/api/routes/';
   constructor(private http: HttpClient) { }
 
-   getAll(): Observable<HttpResponse<Route[]>>{
+   getAllRoutes(): Observable<HttpResponse<Route[]>>{
       return this.http.get<Route[]>(this.apiURL, {observe: 'response'});
   } 
-  
   
   deleteOne(routeID: string):Observable<HttpResponse<Route>>{
     return this.http.delete<Route>(this.apiURL+'delete/'+ routeID, {observe: 'response'})
   }
 
-  addOne(route: Route):Observable<HttpResponse<Route>>{
+  create(route: Route):Observable<HttpResponse<Route>>{
     return this.http.post<Route>(this.apiURL+'create/', route, {observe: 'response'})
   }
+
+  getOne(routeID: string):Observable<HttpResponse<Route>>{
+    return this.http.get<Route>(this.apiURL+'getRoute/'+ routeID, {observe: 'response'})
+  }
+
+  update(routeID: string):Observable<HttpResponse<Route>>{
+    return this.http.get<Route>(this.apiURL+'updateRoute/'+ routeID, {observe: 'response'})
+  }
+
 }
