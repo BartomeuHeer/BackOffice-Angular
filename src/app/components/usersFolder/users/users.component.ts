@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { tap } from 'rxjs';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 import { User } from '../../../interfaces/user.interface';
 import { UsersService } from '../../../services/user.service';
-import { HttpClient,HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
 import { ColDef } from 'ag-grid-community/dist/lib/entities/colDef';
+import { CellClickedEvent } from 'ag-grid-community';
 
 @Component({
   selector: 'app-users',
@@ -14,30 +15,33 @@ import { ColDef } from 'ag-grid-community/dist/lib/entities/colDef';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  users!: User[];
-  rowData$!: Observable<HttpResponse<User[]>>;
-  colDefs:ColDef[]=[
-    {field: 'Name'},
-    {field: 'Email'},
-    {field: 'Birthday'}
-    
+  users: User[]= [];
+  colDef: ColDef[]=[
+    {field: '_id'},
+    {field: 'name'},
+    {field: 'email'},
+    {field: 'birthday'}
+  
   ]
-  constructor(private userSrv: UsersService,public dialog: MatDialog) { }
+  public defaultColDef: ColDef = {
+    sortable: true,
+    filter: true,
+  };
   
 
-  ngOnInit(): void {
-    /* //this.userSrv.getUsers().subscribe(
-      resp => {
-        if(resp.status == 200){ */
-      
-      /* this.users = resp.body!
-      this.rowData$ = resp.body! 
-      console.log(this.users); */
-        
-      this.rowData$ = this.userSrv.getUsers();
-      console.log(this.rowData$);
+  constructor(private userSrv: UsersService,public dialog: MatDialog,private router: Router) { }
+  rowData$!:any;
 
-    
+  ngOnInit(): void {
+    this.userSrv.getUsers().subscribe(
+      resp => {
+        if(resp.status == 200){ 
+      
+      this.users = resp.body!;
+      this.rowData$=resp.body!.map(({_id,name,email,birthday})=>({_id,name,email,birthday}));
+      console.log(this.rowData$);
+        }
+    })
   }
   deleteOneUser(user: User): void {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
@@ -58,7 +62,10 @@ export class UsersComponent implements OnInit {
 
       
   }
-
+  onCellClicked( e: CellClickedEvent): void {
+    console.log(e.data);
+    this.router.navigate(['/users/',e.data._id]);
+  }
   userAdd(user: User): void{
       this.userSrv.addUser(user).subscribe(
         response => {
