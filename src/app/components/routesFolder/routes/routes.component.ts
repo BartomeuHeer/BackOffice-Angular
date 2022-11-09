@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { ColDef,CellClickedEvent } from 'ag-grid-community';
 import { Route } from 'src/app/interfaces/route.interface';
 import { RouteService } from 'src/app/services/route.service';
+import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-routes',
@@ -11,7 +13,7 @@ import { RouteService } from 'src/app/services/route.service';
 })
 export class RoutesComponent implements OnInit {
   route!: Route[];
-  constructor(private routeSrv: RouteService,private router: Router) { }
+  constructor(private routeSrv: RouteService,private router: Router,public dialog: MatDialog) { }
 
   rowData$!: any;
 
@@ -37,5 +39,37 @@ export class RoutesComponent implements OnInit {
         }
       }
     );
-  } 
+
+    this.routeSrv.create(this.route).subscribe(
+      response => {
+        if(response.status == 200){
+          this.route.push(response.body!);
+        }}
+    )
+  };
+
+    this.routeSrv.getOne().subscribe(
+      resp =>{
+        if(resp.status == 200){
+          this.route = resp.body!
+          this.rowData$ = this.route.map(({ _id,creator,name,dateOfEntry }) => ({ _id,creator,name,dateOfEntry }))
+        }
+      }
+    );
+
+    this.routeSrv.deleteOne(route: Route): void {
+      const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+        width: '500px',
+        data: {name: this.route}
+      })
+
+      dialogRef.afterClosed().subscribe(result => {
+        if(result){
+          this.routeSrv.deleteOne(route._id).subscribe(
+            response =>  { 
+              if(response.status == 200){
+                this.route = this.route.filter(rou => rou._id != response.body!._id)
+            }
+          })
+    };
 }

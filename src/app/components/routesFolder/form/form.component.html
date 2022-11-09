@@ -1,0 +1,27 @@
+<form [formGroup]="routeForm" (ngSubmit)="onSubmit()">
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Route Name</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
+    </p>
+  
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Creator</mat-label>
+        <input matInput formControlName="creator">
+      </mat-form-field>
+    </p>
+  
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>dateOfEntry</mat-label>
+        <input matInput formControlName="dateOfEntry">
+      </mat-form-field>
+    </p>
+
+    <p>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!routeForm.valid">Submit</button>
+    </p>
+  
+  </form>

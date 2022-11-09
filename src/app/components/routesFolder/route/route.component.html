@@ -1,0 +1,10 @@
+<div class="route">
+    <mat-card class="card">
+        <mat-card-header>
+            <mat-card-title>{{route.name}}</mat-card-title>
+            </mat-card-header>
+        <mat-card-content>Route Creator: {{route.creator}}</mat-card-content>
+        <mat-card-content>Route dateOfEntry: {{route.dateOfEntry}}</mat-card-content>
+        <mat-card-actions><button mat-raised-button color="warn" (click)="delete()">delete</button></mat-card-actions>
+    </mat-card>
+</div>
