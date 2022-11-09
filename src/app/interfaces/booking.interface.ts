@@ -3,22 +3,23 @@ import { Route } from "./route.interface"
 import { User } from "./user.interface"
 
 export interface Booking{
+	_id: string,
     route: Route,
 	user: User,
+	price: number,
 	dayOfCreation: Date,
-	price: Number,
 	cancelPolicy:{
 		completRefund:{
 			cancelDate: Date,
-			cancelPrice: Number
+			cancelPrice: number
 		},
 		halfRefund: {
 			cancelDate: Date,
-			cancelPrice: Number
+			cancelPrice: number
 		},
 		noRefund:{
 			cancelDate: Date,
-			cancelPrice: Number
+			cancelPrice: number
 		}
 	},
 	selectedStopPoint: Point

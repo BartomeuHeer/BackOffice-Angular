@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BookingFormComponent } from './components/bookingFolder/booking-form/booking-form.component';
 import { BookingsComponent } from './components/bookingFolder/bookings/bookings.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: "routes", component: RoutesComponent},
   {path: "bookings", component: BookingsComponent},
   {path: "login", component: LogInComponent},
+  {path: "bookings/:id", component: BookingFormComponent},
   {path: "**", component: PageNotFoundComponent},
   
 

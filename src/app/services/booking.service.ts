@@ -8,7 +8,7 @@ import { Booking } from '../interfaces/booking.interface';
 })
 export class BookingService {
 
-  private apiURL = 'http://localhost:5432/api/users/';
+  private apiURL = 'http://localhost:5432/api/bookings/';
   constructor(private http: HttpClient) { }
 
    getAll(): Observable<HttpResponse<Booking[]>>{
