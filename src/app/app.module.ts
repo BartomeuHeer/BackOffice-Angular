@@ -20,6 +20,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { BookingComponent } from './components/bookingFolder/booking/booking.component';
 import { BookingFormComponent } from './components/bookingFolder/booking-form/booking-form.component';
+import { AddUserComponent } from './components/usersFolder/add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { BookingFormComponent } from './components/bookingFolder/booking-form/bo
     NavbarComponent,
     PageNotFoundComponent,
     BookingComponent,
-    BookingFormComponent
+    BookingFormComponent,
+    AddUserComponent
     
   ],
   imports: [

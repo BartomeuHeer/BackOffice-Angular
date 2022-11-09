@@ -1,12 +1,19 @@
-<div class="form">
-    <app-form
-    (addUser)="userAdd($event)"></app-form>
+<div class="addUser">
+    <a class="hover" mat-button routerLinkActive="activebutton" routerLink="/routes">ROUTES</a> 
 </div>
+
 <div class="users">
-    <app-user 
+    <ag-grid-angular>
+        class="ag-theme-alpine"
+        style="height:500px; width: 500px;"
+        [rowData]="users$ | async"
+        [columnDefs]="colDefs"
+    </ag-grid-angular>
+    
+</div>
+
+
+<!-- <app-user 
     (deleteUser)="deleteOneUser($event)"
     [user]="user" 
-    *ngFor="let user of users"></app-user>
-</div>
-
-
+    *ngFor="let user of users"></app-user> -->
