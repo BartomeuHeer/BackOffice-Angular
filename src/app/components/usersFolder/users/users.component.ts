@@ -43,37 +43,10 @@ export class UsersComponent implements OnInit {
         }
     })
   }
-  deleteOneUser(user: User): void {
-    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-      width: '500px',
-      data: {name: user.name}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if(result){
-        this.userSrv.delete(user._id).subscribe(
-          response =>  { 
-            if(response.status == 200){
-              this.users = this.users.filter(usr => usr._id != response.body!._id)
-          }
-        });
-      }
-    });
-
-      
-  }
   onCellClicked( e: CellClickedEvent): void {
     console.log(e.data);
     this.router.navigate(['/users/',e.data._id]);
   }
-  userAdd(user: User): void{
-      this.userSrv.addUser(user).subscribe(
-        response => {
-          if(response.status == 200){
-            this.users.push(response.body!);
-        }}
-      )
-  }
   
+  }
 
-}

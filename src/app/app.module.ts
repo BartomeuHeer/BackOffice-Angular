@@ -26,6 +26,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { BookingComponent } from './components/bookingFolder/booking/booking.component';
 import { BookingFormComponent } from './components/bookingFolder/booking-form/booking-form.component';
 import { AddUserComponent } from './components/usersFolder/add-user/add-user.component';
+import { UserProfileComponent } from './components/usersFolder/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { AddUserComponent } from './components/usersFolder/add-user/add-user.com
     BookingComponent,
     BookingFormComponent,
     AddUserComponent,
+    UserProfileComponent,
 
     
   ],

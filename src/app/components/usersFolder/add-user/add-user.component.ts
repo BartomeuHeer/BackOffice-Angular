@@ -16,6 +16,7 @@ export class AddUserComponent implements OnInit {
     this.userSrv.addUser(user).subscribe(
       response => {
         if(response.status == 200){
+          console.log("bien :)")
           //this.users.push(response.body!);
       }}
     )

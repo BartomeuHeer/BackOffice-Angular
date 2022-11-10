@@ -21,19 +21,7 @@ export class FormComponent implements OnInit {
     password: new FormControl('', [Validators.required, Validators.min(6)]),
     birthday: new FormControl('', [Validators.required, Validators.min(10)]) 
   })
-  constructor(
-    /* private fb: FormBuilder,
-    private router: Router,
-    private userService: UsersService,
-    private aRouter: ActivatedRoute */
-  ) {
-   /*  this.userForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      birthday: ['', Validators.required],
-    }) */
-   }
+  constructor() {}
 
   ngOnInit(): void {
   }

@@ -20,7 +20,9 @@ export class UsersService {
    getUsers(): Observable<HttpResponse<User[]>>{
       return this.http.get<User[]>(this.apiURL, {observe: 'response'});
   } 
-
+  getUserById(userId:string): Observable<HttpResponse<User>>{
+    return this.http.get<User>(this.apiURL+'/'+userId, {observe: 'response'});
+} 
   delete(userId:string):Observable<HttpResponse<User>>{
     return this.http.delete<User>(this.apiURL+'/'+ userId, {observe: 'response'})
   }
