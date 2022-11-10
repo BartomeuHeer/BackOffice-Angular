@@ -8,11 +8,15 @@ import { User } from '../../../interfaces/user.interface';
 export class UserComponent implements OnInit {
   @Input() user!: User
   @Output() deleteUser = new EventEmitter<User>();
+  @Output() editUser=new EventEmitter<User>();
   constructor() { }
 
   ngOnInit(): void {
   }
   delete():void{
     this.deleteUser.emit(this.user)
+  }
+  edit():void{
+    this.editUser.emit(this.user);
   }
 }
