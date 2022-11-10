@@ -11,4 +11,5 @@ export interface Route{
     endPoint: string,
     stopPoint: [string],
 	dateOfBeggining: Date
+	date: Date
 }

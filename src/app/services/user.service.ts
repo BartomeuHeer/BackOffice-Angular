@@ -20,13 +20,18 @@ export class UsersService {
    getUsers(): Observable<HttpResponse<User[]>>{
       return this.http.get<User[]>(this.apiURL, {observe: 'response'});
   } 
-
+  getUserById(userId:string): Observable<HttpResponse<User>>{
+    return this.http.get<User>(this.apiURL+'/'+userId, {observe: 'response'});
+} 
   delete(userId:string):Observable<HttpResponse<User>>{
     return this.http.delete<User>(this.apiURL+'/'+ userId, {observe: 'response'})
   }
 
   addUser(user:User):Observable<HttpResponse<User>>{
     return this.http.post<User>(this.apiURL+'register/', user, {observe: 'response'})
+  }
+  updateUser(user:User):Observable<HttpResponse<User>>{
+    return this.http.put<User>(this.apiURL+user._id,user,{observe:'response'})
   }
 
   logIn(userData:LogIn): Observable<HttpResponse<User>>{

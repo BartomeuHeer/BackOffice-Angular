@@ -1,0 +1,41 @@
+<div class="booking">
+    <mat-card class="card">
+        <mat-card-header style="justify-content: center;">
+           <mat-card-title>ROUTE INFORMATION</mat-card-title>
+        </mat-card-header>
+        <div class="divider"></div>
+        <mat-card-content>
+            <div class="container">
+                <h2>General Information</h2> 
+                <div class="content">
+                    <h4>Route ID: {{route._id}}</h4>
+                    <h4>Name: {{route.name}}</h4>
+                    <h4>Date of beggining: {{route.dateOfBeggining}}</h4>
+                </div>
+            </div>
+            <div class="container">
+                <div class="header"><mat-icon class="icon">perm_identity</mat-icon><h2 class="title">Creator Information</h2></div> 
+                <div class="content">
+                    <h4>User ID: {{route.creator._id}}</h4>
+                    <h4>User: {{route.creator.name}}</h4>
+                    <h4>Email: {{route.creator.email}}</h4>
+                </div>
+            </div>
+            <div class="container">
+                <div class="header"><mat-icon class="icon"> directions_car</mat-icon><h2 class="title">Point Information</h2> </div>
+                <div class="content">
+                    <h4>Origin: {{route.startPoint}}</h4>
+                    <h4>Destination: {{route.endPoint}}</h4>
+                    <div *ngFor="let p of route.stopPoint">
+                        <h4>Stops: {{p}}</h4>
+                    </div>
+                    
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions style="margin: 10px;">
+            <button mat-raised-button color="warn" (click)="deleteOne()">delete</button>
+            <button mat-raised-button color="primary" [routerLink]="['edit']">edit</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

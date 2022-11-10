@@ -1,0 +1,46 @@
+
+<form class="form"   [formGroup]="routeForm" (ngSubmit)="onSubmit()">
+   
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
+    </p>
+  
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Creator</mat-label>
+        <input matInput formControlName="creator">
+      </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Origin</mat-label>
+          <input matInput formControlName="startPoint">
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Destination</mat-label>
+          <input matInput formControlName="endPoint">
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Stops</mat-label>
+          <input matInput formControlName="stopPoint">
+        </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Date</mat-label>
+        <input matInput formControlName="dateOfBeggining">
+      </mat-form-field>
+    </p>
+    <p>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!routeForm.valid">Submit</button>
+    </p>
+  
+  </form>
+
