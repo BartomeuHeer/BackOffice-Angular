@@ -20,7 +20,7 @@ export class BookingComponent implements OnInit {
     const data: any = this.route.snapshot.data;
     if (data.bookingData.status == 200) {
       this.booking = data.bookingData.body.booking;
-      console.log(this.booking);
+      console.log(data);
     }
 
   }

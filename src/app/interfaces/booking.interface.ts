@@ -22,5 +22,5 @@ export interface Booking{
 			cancelPrice: number
 		}
 	},
-	selectedStopPoint: Point
+	selectedStopPoint: string
 }

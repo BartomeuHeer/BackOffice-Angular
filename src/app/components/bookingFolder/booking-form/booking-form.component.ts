@@ -16,44 +16,26 @@ import { UsersService } from 'src/app/services/user.service';
 export class BookingFormComponent implements OnInit {
   selectedValue!: String;
   booking!: Booking;
-  users!: User[];
-  routes!: Route[];
 
-  constructor(private bookingSrv: BookingService, private usrSrv: UsersService, private routeSrv: RouteService, private route: ActivatedRoute, private router: Router ) { }
+  constructor(private bookingSrv: BookingService, private router: Router ) { }
 
   bookingForm = new FormGroup({
-    name: new FormControl('', Validators.required),
-    email: new FormControl('',[Validators.required,Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.min(6)]) 
+    route: new FormControl('', Validators.required),
+    user: new FormControl('',Validators.required),
+    price: new FormControl('',Validators.required),
+    selectedStop: new FormControl('', Validators.required) 
   })
 
   ngOnInit(): void {
-    const data: any = this.route.snapshot.data;
-    if (data.bookingData.status == 200) {
-      this.booking = data.bookingData.body.booking;
-      this.getUsers();
-      this.getRoutes();
-    }
+    
   }
-
-  getRoutes(): void{
-    this.routeSrv.getAll().subscribe(
-      res =>{
-        if(res.status == 200){
-          this.routes = res.body!;
-        }
+  onSubmit(){
+    const newBooking: Booking = <Booking><unknown>this.bookingForm.value
+    this.bookingSrv.addOne(newBooking).subscribe(res=>{
+      if(res.status == 200){
+        this.router.navigate(['/bookings/']);
       }
-    )
+    })
+    
   }
-
-  getUsers(): void{
-    this.usrSrv.getUsers().subscribe(
-      res => {
-        if(res.status == 200 ){
-          this.users = res.body!;
-        }
-      }
-    )
-  }
-
 }

@@ -20,9 +20,10 @@ const routes: Routes = [
   //{path: "user", component: UserComponent},
   {path: "routes", component: RoutesComponent},
   {path: "bookings", component: BookingsComponent},
+  //{path: "bookings/create", component: BookingFormComponent},
   {path: "login", component: LogInComponent},
   {path: "bookings/:id", component: BookingComponent, resolve: { bookingData: BookingResolver }},
-  {path: "bookings/:id/edit",component: BookingFormComponent, resolve: { bookingData: BookingResolver }},
+  {path: "bookings/create",component: BookingFormComponent},
   {path: "**", component: PageNotFoundComponent},
   
 
