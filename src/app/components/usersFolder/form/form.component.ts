@@ -21,7 +21,7 @@ export class FormComponent implements OnInit {
     password: new FormControl('', [Validators.required, Validators.min(6)]),
     birthday: new FormControl('', [Validators.required, Validators.min(10)]) 
   })
-  constructor() {}
+  constructor(router: Router) {}
 
   ngOnInit(): void {
   }

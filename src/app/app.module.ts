@@ -27,6 +27,7 @@ import { BookingComponent } from './components/bookingFolder/booking/booking.com
 import { BookingFormComponent } from './components/bookingFolder/booking-form/booking-form.component';
 import { AddUserComponent } from './components/usersFolder/add-user/add-user.component';
 import { UserProfileComponent } from './components/usersFolder/user-profile/user-profile.component';
+import { EditUserComponent } from './components/usersFolder/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { UserProfileComponent } from './components/usersFolder/user-profile/user
     BookingFormComponent,
     AddUserComponent,
     UserProfileComponent,
+    EditUserComponent,
 
     
   ],

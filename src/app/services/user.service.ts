@@ -30,6 +30,9 @@ export class UsersService {
   addUser(user:User):Observable<HttpResponse<User>>{
     return this.http.post<User>(this.apiURL+'register/', user, {observe: 'response'})
   }
+  updateUser(user:User):Observable<HttpResponse<User>>{
+    return this.http.put<User>(this.apiURL+user._id,user,{observe:'response'})
+  }
 
   logIn(userData:LogIn): Observable<HttpResponse<User>>{
     return this.http.post<User>(this.apiURL + 'login/', userData, {observe: 'response'})
