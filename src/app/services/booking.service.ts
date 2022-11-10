@@ -15,9 +15,11 @@ export class BookingService {
       return this.http.get<Booking[]>(this.apiURL, {observe: 'response'});
   } 
   
-  
+  getOne(bookingId: String): Observable<HttpResponse<Booking>>{
+    return this.http.get<Booking>(this.apiURL + bookingId, {observe: 'response'});
+  }
   deleteOne(bookingId: string):Observable<HttpResponse<Booking>>{
-    return this.http.delete<Booking>(this.apiURL+'delete/'+ bookingId, {observe: 'response'})
+    return this.http.delete<Booking>(this.apiURL+'cancel/'+ bookingId, {observe: 'response'})
   }
 
   addOne(booking: Booking):Observable<HttpResponse<Booking>>{

@@ -41,7 +41,7 @@ div.body{
 .divider{
     width: 30%;
     height: 5px;
-    background: aqua;
+    background: #bddbfa;
     margin: 15px auto;
 }
 .mat-card-content{

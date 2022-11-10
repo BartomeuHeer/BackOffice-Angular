@@ -1,0 +1,38 @@
+div.booking {
+    margin-top: 80px;
+    
+    display: flex;
+    justify-content: center;
+}
+.card{
+    width: 1000px;
+}
+.divider{
+    width: 50%;
+    height: 5px;
+    background: #bddbfa;
+    margin: 15px auto;
+}
+div.container{
+    margin: 10px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 15px;
+}
+.header{
+    position: relative;
+    display: flex;
+}
+.title{
+    margin-left: 25px;
+    position: relative;
+    
+}
+.content{
+    margin-left: 50px;
+}
+.icon{
+    position: absolute;
+    top: 3px;
+    
+}
