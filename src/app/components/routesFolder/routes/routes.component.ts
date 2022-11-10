@@ -6,6 +6,7 @@ import { RouteService } from 'src/app/services/route.service';
 import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 
+
 @Component({
   selector: 'app-routes',
   templateUrl: './routes.component.html',
@@ -31,6 +32,7 @@ export class RoutesComponent implements OnInit {
     this.router.navigate(['/routes/', e.data._id]);
   }
   ngOnInit(): void {
+
     this.routeSrv.getAllRoutes().subscribe(
       resp => {
         if(resp.status == 200){
@@ -40,14 +42,15 @@ export class RoutesComponent implements OnInit {
       }
     );
 
-    this.routeSrv.create(this.route).subscribe(
-      response => {
-        if(response.status == 200){
-          this.route.push(response.body!);
+    createRoute(route: Route): void(
+      this.routeSrv.create(route).subscribe(
+        response => {
+          if(response.status == 200){
+            this.route.push(response.body!);
         }}
-    )
-  };
-
+      )
+    );
+    
     this.routeSrv.getOne().subscribe(
       resp =>{
         if(resp.status == 200){
@@ -57,19 +60,25 @@ export class RoutesComponent implements OnInit {
       }
     );
 
-    this.routeSrv.deleteOne(route: Route): void {
+    deleteOne(route: Route): void (
       const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
         width: '500px',
-        data: {name: this.route}
+        data: {name: route.name}
       })
-
+  
       dialogRef.afterClosed().subscribe(result => {
         if(result){
-          this.routeSrv.deleteOne(route._id).subscribe(
+          this.routeSrv.deleteRoute(route._id).subscribe(
             response =>  { 
               if(response.status == 200){
                 this.route = this.route.filter(rou => rou._id != response.body!._id)
             }
-          })
-    };
+          });
+        }
+      }
+      )
+    );
+  }
 }
+
+
