@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/usersFolder/user/user.component';
@@ -20,6 +25,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { BookingComponent } from './components/bookingFolder/booking/booking.component';
 import { BookingFormComponent } from './components/bookingFolder/booking-form/booking-form.component';
+import { AddUserComponent } from './components/usersFolder/add-user/add-user.component';
+import { UserProfileComponent } from './components/usersFolder/user-profile/user-profile.component';
+import { EditUserComponent } from './components/usersFolder/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -35,10 +43,17 @@ import { BookingFormComponent } from './components/bookingFolder/booking-form/bo
     NavbarComponent,
     PageNotFoundComponent,
     BookingComponent,
-    BookingFormComponent
+    BookingFormComponent,
+    AddUserComponent,
+    UserProfileComponent,
+    EditUserComponent,
+
     
   ],
   imports: [
+    MatTableModule,
+    MatInputModule,
+    MatNativeDateModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
