@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import { MaterialModule } from './material.module';
 import { FormComponent } from './components/usersFolder/form/form.component';
+import { FormComponentR } from './components/routesFolder/formR/formR.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
@@ -20,22 +21,25 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { BookingComponent } from './components/bookingFolder/booking/booking.component';
 import { BookingFormComponent } from './components/bookingFolder/booking-form/booking-form.component';
+import { RouteComponent } from './components/routesFolder/route/route.spec';
 
 @NgModule({
   declarations: [
     AppComponent,
+    FormComponent,
     UserComponent,
     UsersComponent,
-    FormComponent,
+    FormComponentR,
     ConfirmationDialogComponent,
     MainPageComponent,
-    RoutesComponent,
     BookingsComponent,
     LogInComponent,
     NavbarComponent,
     PageNotFoundComponent,
     BookingComponent,
-    BookingFormComponent
+    BookingFormComponent,
+    RoutesComponent,
+    RouteComponent,
     
   ],
   imports: [

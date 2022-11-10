@@ -1,5 +1,6 @@
 import { Component, OnInit, Input,Output, EventEmitter } from '@angular/core';
-import { Route } from '@angular/router';
+import { Route } from '../../../interfaces/route.interface';
+
 @Component({
   selector: 'app-route',
   templateUrl: './route.component.html',

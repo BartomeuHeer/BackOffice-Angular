@@ -1,14 +1,14 @@
 import { Component, OnInit,Output,EventEmitter,Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Route } from '@angular/router';
 import { Validators } from '@angular/forms';
+import { Route } from '@angular/router';
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  selector: 'app-formR',
+  templateUrl: './formR.component.html',
+  styleUrls: ['./formR.component.css']
 })
-export class FormComponent implements OnInit {
+export class FormComponentR implements OnInit {
   @Input() route!: Route
   @Output() create = new EventEmitter<Route>();
   routeForm = new FormGroup({
