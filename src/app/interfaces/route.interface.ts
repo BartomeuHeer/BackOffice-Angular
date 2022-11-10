@@ -3,11 +3,11 @@ import { User } from "./user.interface"
 
 
 export interface Route{
-    name: String,
+    _id: String,
     creator:User,
     participants: [User],
     startPoint: Point,
     endPoint: Point,
     stopPoint: [Point],
-	dateOfEntry: Date
+	date: Date
 }

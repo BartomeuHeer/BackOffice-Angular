@@ -1,0 +1,14 @@
+<div class="route">
+    <mat-card class="card">
+        <mat-card-header>
+            <mat-card-title>{{route._id}}</mat-card-title>
+            </mat-card-header>
+        <mat-card-content>Creator {{route.creator}}</mat-card-content>
+        <mat-card-content>Participants: {{route.participants}}</mat-card-content>
+        <mat-card-content>Origin: {{route.startPoint}}</mat-card-content>
+        <mat-card-content>Destination: {{route.endPoint}}</mat-card-content>
+        <mat-card-content>Stops: {{route.stopPoint}}</mat-card-content>
+        <mat-card-content>Date: {{route.date}</mat-card-content>
+        <mat-card-actions><button mat-raised-button color="warn" (click)="deleteOne()">delete</button></mat-card-actions>
+    </mat-card>
+</div>

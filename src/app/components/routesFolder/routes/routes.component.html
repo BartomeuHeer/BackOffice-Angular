@@ -1,1 +1,11 @@
-<p>routes works!</p>
+<ag-grid-angular
+class="ag-theme-alpine"
+style="height:500px; width: 1000px; margin-top: 80px; position: absolute;"
+[rowData]="rowData$"
+[columnDefs]="colDefs"
+[animateRows]="true"
+[defaultColDef]="defaultColDef"
+(cellClicked)="onCellClicked($event)"
+>
+
+</ag-grid-angular>
