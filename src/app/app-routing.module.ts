@@ -7,6 +7,9 @@ import { LogInComponent } from './components/log-in/log-in.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { RoutesComponent } from './components/routesFolder/routes/routes.component';
+import { RouteComponent } from './components/routesFolder/route/route.component';
+import { MainroutesComponent } from './components/routesFolder/mainroutes/mainroutes.component';
+import { FormroutesComponent } from './components/routesFolder/formroutes/formroutes.component';
 import { UserComponent } from './components/usersFolder/user/user.component';
 import { UsersComponent } from './components/usersFolder/users/users.component';
 import { BookingResolver } from './resolver/booking.resolver';
@@ -19,6 +22,9 @@ const routes: Routes = [
   {path: "users", component: UsersComponent},
   //{path: "user", component: UserComponent},
   {path: "routes", component: RoutesComponent},
+  {path: "route", component: RouteComponent},
+  {path: "formroutes", component: FormroutesComponent},
+  {path: "mainroutes", component: MainroutesComponent},
   {path: "bookings", component: BookingsComponent},
   {path: "login", component: LogInComponent},
   {path: "bookings/:id", component: BookingComponent, resolve: { bookingData: BookingResolver }},
