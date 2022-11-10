@@ -23,13 +23,12 @@ export class FormroutesComponent implements OnInit {
 
  
   routeForm = new FormGroup({
-  
+    name: new FormControl('', Validators.required),
     creator: new FormControl('', Validators.required),
-    participants: new FormControl('', Validators.required),
     startPoint: new FormControl('', Validators.required),
     endPoint: new FormControl('', Validators.required),
     stopPoint: new FormControl(),
-    date: new FormControl('', Validators.required) 
+    dateOfBeggining: new FormControl('', [Validators.required, Validators.min(10)]) 
   })
   
 
@@ -44,7 +43,7 @@ export class FormroutesComponent implements OnInit {
       response => {
         if(response.status == 200){
           //this.routeSrv.newUserLogged(response.body!);
-          this.router.navigate(['/']);
+          this.router.navigate(['/routes']);
         }
       }); 
   }

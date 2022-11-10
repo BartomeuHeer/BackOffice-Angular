@@ -20,7 +20,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { BookingComponent } from './components/bookingFolder/booking/booking.component';
 import { BookingFormComponent } from './components/bookingFolder/booking-form/booking-form.component';
-import { MainroutesComponent } from './components/routesFolder/mainroutes/mainroutes.component';
 import { FormroutesComponent } from './components/routesFolder/formroutes/formroutes.component';
 import { RouteComponent } from './components/routesFolder/route/route.component';
 
@@ -39,7 +38,6 @@ import { RouteComponent } from './components/routesFolder/route/route.component'
     PageNotFoundComponent,
     BookingComponent,
     BookingFormComponent,
-    MainroutesComponent,
     FormroutesComponent,
     RouteComponent
     

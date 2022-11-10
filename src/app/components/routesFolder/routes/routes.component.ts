@@ -16,8 +16,8 @@ export class RoutesComponent implements OnInit {
   routes: Route[]=[];
   colDefs: ColDef[]=[
     {field: '_id'},
-    {field: 'creator'},
-    {field: 'date'},
+    {field: 'name'},
+    {field: 'dateOfBeggining'},
   ];
 
   defaultColDef: ColDef = {
@@ -36,16 +36,16 @@ export class RoutesComponent implements OnInit {
         if(resp.status == 200){ 
       
           this.routes = resp.body!;
-          this.rowData$=resp.body!.map(({_id,creator,date})=>(
-            {_id,creator,date}));
-          console.log(this.rowData$);
+          this.rowData$=resp.body!.map(({_id,name,dateOfBeggining})=>(
+            {_id,name,dateOfBeggining}));
+          console.log(resp.body);
             }
       })
   }
 
   onCellClicked(event: CellClickedEvent){
     console.log(event);
-    this.router.navigate(['/route/'])
+    this.router.navigate(['/route/',event.data._id])
   }
 
 }

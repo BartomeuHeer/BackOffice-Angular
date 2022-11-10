@@ -19,6 +19,9 @@ export class RouteService {
   deleteOne(routeID: string):Observable<HttpResponse<Route>>{
     return this.http.delete<Route>(this.apiURL+ routeID +'/deleteRoute/', {observe: 'response'})
   }
+  getOne(routeId: String): Observable<HttpResponse<Route>>{
+    return this.http.get<Route>(this.apiURL + routeId, {observe: 'response'});
+  }
 
   addOne(route: Route):Observable<HttpResponse<Route>>{
     return this.http.post<Route>(this.apiURL+'create/', route, {observe: 'response'})
