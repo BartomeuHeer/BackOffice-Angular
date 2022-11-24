@@ -1,6 +1,7 @@
 import { HttpClient,HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
+import { LoginResponse } from '../interfaces/login-response.interface';
 import { LogIn } from '../interfaces/logIn.interface';
 import {User} from '../interfaces/user.interface'
 
@@ -34,8 +35,8 @@ export class UsersService {
     return this.http.put<User>(this.apiURL+user._id,user,{observe:'response'})
   }
 
-  logIn(userData:LogIn): Observable<HttpResponse<User>>{
-    return this.http.post<User>(this.apiURL + 'login/', userData, {observe: 'response'})
+  logIn(userData:LogIn): Observable<HttpResponse<LoginResponse>>{
+    return this.http.post<LoginResponse>(this.apiURL + 'login/', userData, {observe: 'response'})
   }
 
   newUserLogged(user: User) {

@@ -17,13 +17,15 @@ export class LogInComponent implements OnInit, OnDestroy {
   user!: User;
   message!: String;
   subscription!: Subscription;
+  toastMessage: string;
+  toastVisible: boolean = false;
 
   constructor(private userSrv: UsersService, private router: Router) { }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
-  
+
   ngOnInit(): void {
     this.subscription = this.userSrv.currentUser.subscribe(message => this.user = message)
   }
@@ -32,16 +34,29 @@ export class LogInComponent implements OnInit, OnDestroy {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required)
   })
+  hide = true;
 
-  onSubmit(){
+  onSubmit() {
     const logInParams: LogIn = <LogIn>this.loginForm.value;
-    this.userSrv.logIn(logInParams).subscribe(
-      response => {
-        if(response.status == 200){
-          this.userSrv.newUserLogged(response.body!);
+    this.userSrv.logIn(logInParams).subscribe({
+      next: (response) => {
+        this.userSrv.newUserLogged(response.body!.user);
+        console.log(response.body!.tocken)
+        localStorage.setItem('userTocken', response.body!.tocken);
+        localStorage.setItem('userLogged', "true");
+        if (response.body!.user.admin) {
           this.router.navigate(['/']);
         }
-      }); 
+        else {
+          this.toastMessage = "Unautoritzed"
+          this.toastVisible = true;
+        }
+      },
+      error: (error) => {
+        console.log("no se vino")
+        this.toastMessage = "Incorrect credencials"
+        this.toastVisible = true;
+      }
+    })
   }
-
 }

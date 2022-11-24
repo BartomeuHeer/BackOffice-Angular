@@ -19,25 +19,26 @@ import { UserComponent } from './components/usersFolder/user/user.component';
 import { UsersComponent } from './components/usersFolder/users/users.component';
 import { BookingResolver } from './resolver/booking.resolver';
 import { RouteResolver } from './resolver/route.resolver';
+import { AuthGuard } from './guards/auth.guard';
 //import { BookingResolver } from './resolver/booking.resolver';
 
 
 
 const routes: Routes = [
-  {path: "", component: MainPageComponent},
-  {path: "users", component: UsersComponent},
-  {path: "users/addUser", component: AddUserComponent},
-  {path: "users/:_id", component: UserProfileComponent},
-  {path: "users/:_id/editUser", component: EditUserComponent},
+  {path: "", component: MainPageComponent, canActivate: [AuthGuard]},
+  {path: "users", component: UsersComponent,canActivate: [AuthGuard]},
+  {path: "users/addUser", component: AddUserComponent,canActivate: [AuthGuard]},
+  {path: "users/:_id", component: UserProfileComponent,canActivate: [AuthGuard]},
+  {path: "users/:_id/editUser", component: EditUserComponent,canActivate: [AuthGuard]},
   //{path: "user", component: UserComponent},
-  {path: "routes", component: RoutesComponent},
-  {path: "route/:id", component: RouteComponent,resolve: {routeData: RouteResolver}},
-  {path: "formroutes", component: FormroutesComponent},
-  {path: "bookings", component: BookingsComponent},
+  {path: "routes", component: RoutesComponent,canActivate: [AuthGuard]},
+  {path: "route/:id", component: RouteComponent,resolve: {routeData: RouteResolver},canActivate: [AuthGuard]},
+  {path: "formroutes", component: FormroutesComponent,canActivate: [AuthGuard]},
+  {path: "bookings", component: BookingsComponent,canActivate: [AuthGuard]},
   //{path: "bookings/create", component: BookingFormComponent},
   {path: "login", component: LogInComponent},
-  {path: "bookings/:id", component: BookingComponent, resolve: { bookingData: BookingResolver }},
-  {path: "bookings/create",component: BookingFormComponent},
+  {path: "bookings/:id", component: BookingComponent, resolve: { bookingData: BookingResolver },canActivate: [AuthGuard]},
+  {path: "bookings/create",component: BookingFormComponent,canActivate: [AuthGuard]},
   {path: "**", component: PageNotFoundComponent},
   
 

@@ -13,9 +13,13 @@
                     <p>
                       <mat-form-field appearance="fill">
                         <mat-label>Password</mat-label>
-                        <input matInput formControlName="password">
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                       </mat-form-field>
                     </p>
+                    <div class="toast" [ngStyle]="{'visibility': toastVisible}">
+                      <p>{{toastMessage}}</p>
+                    </div>
                     <p>
                       <button mat-raised-button color="primary" type="submit">Submit</button>
                     </p>

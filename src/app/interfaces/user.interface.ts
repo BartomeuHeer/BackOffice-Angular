@@ -10,5 +10,6 @@ export interface User {
     birthday: Date,
 	route: [Route],
 	ratings: Rating,
-	booking: [Booking]
+	booking: [Booking],
+    admin: boolean
 }
